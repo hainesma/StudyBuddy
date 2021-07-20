@@ -1,1 +1,5 @@
-﻿<div style="border: 1px solid red">Question Component</div>
+﻿<div><h2>{{qJSON}}</h2></div>
+{{qList}}
+<div *ngFor="let q of qList">
+    <p>{{q.text}}</p>
+</div>
