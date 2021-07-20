@@ -43,5 +43,31 @@ namespace StudyBuddy.Controllers
         }
 
 
+        [HttpDelete]
+        [Route("{userId}/d={num}")]
+        public void RemoveFavorite(string userId, int num)
+        {
+            List<Favorite> f = new List<Favorite>();
+            f = db.Favorites.Where(x => x.UserID == userId).ToList();
+            foreach(Favorite f2 in f)
+            {
+                if(f2.QuestionID == num)
+                {
+                    db.Favorites.Remove(f2);
+                }
+            }
+            db.SaveChanges();
+        }
+
+        [HttpPost]
+        [Route("{userId}/id={id}")]
+        public void AddFavorite(string userId, int id)
+        {
+            Question q = db.Questions.Where(x => x.Id == id).ToList().First();
+            Favorite f = new Favorite() { UserID = userId, QuestionID = q.Id };
+            db.Favorites.Add(f);
+            db.SaveChanges();
+        }
+
     }
 }
