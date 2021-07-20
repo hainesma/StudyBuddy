@@ -14,6 +14,18 @@ namespace StudyBuddy.Controllers
     {
         StudyBuddyContext db = new StudyBuddyContext();
 
+
+        [HttpGet]
+        public List<Favorite> GetQuestions()
+        {
+            List<Favorite> fList = new List<Favorite>();
+            foreach (Favorite f in db.Favorites)
+            {
+                fList.Add(f);
+            }
+            return fList;
+        }
+
         [HttpGet]
         [Route("User={userId}")]
         public List<Question> GetFavorites(string userID)
