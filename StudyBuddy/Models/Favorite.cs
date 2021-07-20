@@ -14,7 +14,7 @@ namespace StudyBuddy.Models
         public int FavoriteID { get; set; }
 
         [Required]
-        public string userID { get; set; }
+        public string UserID { get; set; }
 
         public int? QuestionID { get; set; }
     }
