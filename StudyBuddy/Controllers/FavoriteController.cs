@@ -37,11 +37,9 @@ namespace StudyBuddy.Controllers
                         q.Add(quest);
                     }
                 }
-
             }
             return q;
         }
-
 
         [HttpDelete]
         [Route("{userId}/d={num}")]
