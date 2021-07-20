@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.SpaServices.AngularCli;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -10,6 +11,8 @@ namespace StudyBuddy
 {
     public class Startup
     {
+        string connection = "Server=.\\SQLExpress;Database=StudyBuddy;Trusted_Connection=True;ConnectRetryCount=0;";
+
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -26,6 +29,8 @@ namespace StudyBuddy
             {
                 configuration.RootPath = "ClientApp/dist";
             });
+            services.AddDbContext<StudyBuddyContext>(options => options.UseSqlServer(connection));
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

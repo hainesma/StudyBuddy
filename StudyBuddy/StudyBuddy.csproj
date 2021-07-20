@@ -30,11 +30,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Remove="ClientApp\Context\StudyBuddyContext.cs" />
+    <Folder Include="Controllers\" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Controllers\" />
+    <None Include="Context\StudyBuddyDbContext.cs" />
   </ItemGroup>
 
   <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">
