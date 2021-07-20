@@ -23,6 +23,7 @@ namespace StudyBuddy.Controllers
             {
                 qList.Add(qu);
             }
+
             List<Favorite> f = new List<Favorite>();
             f = db.Favorites.Where(x => x.UserID == userID).ToList();
             List<Question> q = new List<Question>();
@@ -30,14 +31,17 @@ namespace StudyBuddy.Controllers
             {
                 foreach (Question quest in qList)
                 {
+
                     if (fav.QuestionID == quest.Id)
                     {
                         q.Add(quest);
                     }
                 }
+
             }
             return q;
         }
+
 
         [HttpDelete]
         [Route("{userId}/d={num}")]
@@ -64,5 +68,6 @@ namespace StudyBuddy.Controllers
             db.Favorites.Add(f);
             db.SaveChanges();
         }
+
     }
 }
