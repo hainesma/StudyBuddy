@@ -1,4 +1,4 @@
-﻿import { HttpClient } from "@angular/common/http";
+import { HttpClient } from "@angular/common/http";
 import { Component, Inject } from "@angular/core";
 import { Questions} from "../questions";
 
@@ -27,3 +27,4 @@ export class QuestionComponent {
           })
       }
 }
+

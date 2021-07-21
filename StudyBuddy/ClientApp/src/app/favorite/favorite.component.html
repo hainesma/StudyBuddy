@@ -1,1 +1,11 @@
-﻿<div style="border: 1px solid red">Favorite Component</div>
+<h2>fJSON</h2>
+
+<form>
+  <p>Please input username</p>
+  <input type="text" name="userId" #userId/>
+  <button (click)="clickme(userId.value)">Login</button>
+</form>
+
+<div *ngFor="let f of favorite">
+  <p>Question Favorited: {{f.id}}. {{f.text}}</p>
+</div>
