@@ -35,6 +35,7 @@ import { AnswerComponent } from './answer/answer.component';
       { path: 'favorite', component: FavoriteComponent },
       { path: 'add-question', component: AddQuestionComponent },
       {path: 'answer', component: AnswerComponent}
+
     ])
   ],
   providers: [FavoriteService, QuestionService, HttpClient],
