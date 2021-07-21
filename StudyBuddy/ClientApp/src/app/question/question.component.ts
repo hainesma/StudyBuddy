@@ -1,7 +1,8 @@
 import { HttpClient } from "@angular/common/http";
-import { Component, Inject } from "@angular/core";
+import { Component, Inject, Input } from "@angular/core";
 import { Questions } from "../questions";
 import { FavoriteService } from "../favorite.service";
+import { Favorites } from "../favorites";
 
 @Component({
   selector: 'app-question',
@@ -16,8 +17,15 @@ export class QuestionComponent {
   question: Questions[] = [];
   base: string = "";
 
-  constructor(private http: HttpClient, private favorite: FavoriteService, @Inject('BASE_URL') baseUrl) {
+  fJSON: string = "Favorites";
+  favorite: Favorites[] = [];
+  base2: string = "";
+  @Input() questionId: number | null = null;
+  @Input() userId: string | null = null;
+
+  constructor(private http: HttpClient, private favorites: FavoriteService, @Inject('BASE_URL') baseUrl) {
     this.base = baseUrl + "Question";
+    this.base2 = baseUrl + "Favorite"
     this.getQuestions();
   }
 
@@ -27,6 +35,20 @@ export class QuestionComponent {
         this.question = qList;
         console.log(qList)
       })
+  }
+
+  clickme2(userId: string, questionId: number) {
+    this.userId = userId;
+    this.questionId = questionId;
+    this.addFavorite(this.userId, this.questionId);
+  }
+
+  addFavorite(userId: string, questionId: number) {
+    let f: Favorites = { questionID: questionId, userID: userId, favoriteID: null }
+    this.http.post<Favorites[]>(this.base2 +"/" + userId + "/id=" + questionId, f).subscribe(fList => {
+      this.favorite = fList;
+      console.log(fList);
+    })
   }
 
   hidePost: boolean = true;

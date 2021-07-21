@@ -16,6 +16,7 @@ namespace StudyBuddy.Controllers
 
 
         [HttpGet]
+        [Route("/all")]
         public List<Favorite> GetQuestions()
         {
             List<Favorite> fList = new List<Favorite>();
@@ -59,10 +60,11 @@ namespace StudyBuddy.Controllers
         {
             List<Favorite> f = new List<Favorite>();
             f = db.Favorites.Where(x => x.UserID == userId).ToList();
-            foreach(Favorite f2 in f)
+            foreach (Favorite f2 in f)
             {
-                if(f2.QuestionID == num)
+                if (f2.QuestionID == num)
                 {
+                
                     db.Favorites.Remove(f2);
                 }
             }
