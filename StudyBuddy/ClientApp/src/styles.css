@@ -32,3 +32,14 @@ img {
 label {
   padding: 3px;
 }
+
+.b2 {
+  float: right;
+  background-color: none;
+  opacity: 25%;
+  border: none;
+}
+
+  .b2:hover {
+    opacity: 100%;
+  }
