@@ -11,6 +11,8 @@ import { QuestionComponent } from './question/question.component';
 import { QuestionService } from './question.service';
 import { FavoriteComponent } from './favorite/favorite.component';
 import { FavoriteService } from './favorite.service';
+import { AddQuestionComponent } from './add-question/add-question.component';
+import { AnswerComponent } from './answer/answer.component';
 
 
 @NgModule({
@@ -19,7 +21,9 @@ import { FavoriteService } from './favorite.service';
     NavMenuComponent,
     HomeComponent,
     QuestionComponent,
-    FavoriteComponent
+    FavoriteComponent,
+    AddQuestionComponent,
+    AnswerComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -28,7 +32,10 @@ import { FavoriteService } from './favorite.service';
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full' },
       { path: 'question', component: QuestionComponent },
-      { path: 'favorite', component: FavoriteComponent }
+      { path: 'favorite', component: FavoriteComponent },
+      { path: 'add-question', component: AddQuestionComponent },
+      {path: 'answer', component: AnswerComponent}
+
     ])
   ],
   providers: [FavoriteService, QuestionService, HttpClient],
