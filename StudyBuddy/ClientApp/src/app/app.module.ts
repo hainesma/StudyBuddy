@@ -12,6 +12,7 @@ import { QuestionService } from './question.service';
 import { FavoriteComponent } from './favorite/favorite.component';
 import { FavoriteService } from './favorite.service';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -19,7 +20,6 @@ import { FavoriteService } from './favorite.service';
     HomeComponent,
     QuestionComponent,
     FavoriteComponent
-
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
