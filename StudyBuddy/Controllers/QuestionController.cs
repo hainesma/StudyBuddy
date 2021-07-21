@@ -38,7 +38,7 @@ namespace StudyBuddy.Controllers
         [HttpGet]
         [Route("Id={userSelection}")]
 
-        public Question getAnswer(int userSelection)
+        public Question GetAnswer(int userSelection)
         {
             List<Question> qAns = GetQuestions();
             foreach (Question q in qAns)
@@ -52,6 +52,22 @@ namespace StudyBuddy.Controllers
             return null;
 
         }
+        [HttpDelete]
+        [Route("Delete/Id={userSelection}")]
+        public void RemoveQuestion(int userSelection)
+        {
+            List<Question> quest = new List<Question>();
+            quest = db.Questions.Where(x => x.Id == userSelection).ToList();
+            foreach (Question q in quest)
+            {
+                if (q.Id == userSelection)
+                {
 
+                    db.Questions.Remove(q);
+                }
+            }
+            db.SaveChanges();
+        }
     }
+
 }

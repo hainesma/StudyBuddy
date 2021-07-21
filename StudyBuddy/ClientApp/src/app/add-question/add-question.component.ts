@@ -4,12 +4,13 @@ import { Favorites } from "../favorites";
 import { Questions } from '../questions';
 import { QuestionService } from '../question.service';
 import { NgForm } from '@angular/forms';
+import { FavoriteService } from '../favorite.service';
 
 @Component({
-    selector: 'app-add-question',
-    templateUrl: './add-question.component.html',
+  selector: 'app-add-question',
+  templateUrl: './add-question.component.html',
   styleUrls: ['./add-question.component.css'],
-  providers: [QuestionService]
+  providers: [QuestionService, FavoriteService]
 })
 
 export class AddQuestionComponent {
