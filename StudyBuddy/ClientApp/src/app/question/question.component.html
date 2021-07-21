@@ -1,15 +1,6 @@
-<h2>C# Study Questions</h2>
-<div *ngFor="let q of question; index as i " class='newDiv'>
+<h2>Answer:</h2>
+<div *ngFor="let q of question" class='newDiv'>
   <p>{{q.text}}</p>
-  <div [ngStyle]="styleList"><p>{{q.answer}}</p></div>
-  <form>
-    <p>Please input username</p>
-    <input type="text" name="userId" #userId />
+  <button (click)="getAnswer(q.id)">View Answer</button>
 
-    <button (click)="clickme2(userId.value, q.id)">Login</button>
-  </form>
 </div>
-  <button (click)="togglePost()">View Answers</button>
-
-<div class="newDiv">  <a routerLink='/add-question'>Add a Question</a></div>
-

@@ -2,31 +2,33 @@ import { HttpClient } from "@angular/common/http";
 import { Component, Inject } from "@angular/core";
 import { Questions } from "../questions";
 import { FavoriteService } from "../favorite.service";
-import { Router } from "@angular/router";
+import { QuestionService } from "../question.service";
+import { Router, RouterModule} from '@angular/router';
 
 @Component({
-  selector: 'app-question',
-  templateUrl: './question.component.html',
-  styleUrls: ['./question.component.css'],
-  providers: [FavoriteService]
+  selector: 'app-answer',
+  templateUrl: './answer.component.html',
+  styleUrls: ['./answer.component.css'],
+  providers: [FavoriteService, QuestionService, RouterModule]
 })
 /** Question component*/
-export class QuestionComponent {
+export class AnswerComponent {
 
-  qJSON: string = "Questions";
+  qJSON: string = "Answer";
   question: Questions[] = [];
-  answer: Questions;
   base: string = "";
-
+  answer: Questions ;
   constructor(private http: HttpClient, private favorite: FavoriteService, private router: Router, @Inject('BASE_URL') baseUrl) {
     this.base = baseUrl + "Question";
-    this.getQuestions();
+    console.log(this.router.getCurrentNavigation().extras.state.id);
+    let id = this.router.getCurrentNavigation().extras.state.id;
+    this.getAnswer(id);
   }
 
-  getQuestions() {
-    this.http.get<Questions[]>(this.base+ '/All')
+  getAnswer(userSelection: number) {
+    this.http.get<Questions>(this.base + '/Id=' + userSelection)
       .subscribe(qList => {
-        this.question = qList;
+        this.answer = qList;
         console.log(qList)
       })
   }
@@ -47,13 +49,6 @@ export class QuestionComponent {
     'display': this.hidePost ? 'none' : 'block'
 
   }
-  getAnswer(userSelection: number) {
-    this.http.get<Questions>(this.base + '/Id=' + userSelection)
-      .subscribe(qList => {
-        this.answer = qList;
-        console.log(qList)
-        this.router.navigate(['/answer'], { state: { id: userSelection } });
-      })
-  }
-}
 
+
+}
