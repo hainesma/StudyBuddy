@@ -15,6 +15,7 @@ namespace StudyBuddy.Controllers
         StudyBuddyContext db = new StudyBuddyContext();
 
         [HttpGet]
+        [Route("all")]
         public List<Question> GetQuestions()
         {
             List<Question> qList = new List<Question>();
@@ -29,10 +30,10 @@ namespace StudyBuddy.Controllers
         [Route("add/{text}/{answer}")]
         public void AddQuestion(string text, string answer)
         {
-            Question newQ = new Question() { Text = text, Answer = answer};
+            Question newQ = new Question() { Text = text, Answer = answer };
             db.Questions.Add(newQ);
             db.SaveChanges();
         }
 
-}
+    }
 }

@@ -1,7 +1,10 @@
 import { Component, Inject, Input } from '@angular/core';
 import { HttpClient } from "@angular/common/http";
 import { Favorites } from "../favorites";
-import { QuestionService } from "../question.service";
+import { Questions } from '../questions';
+import { QuestionService } from '../question.service';
+
+
 
 @Component({
     selector: 'app-favorite',
@@ -14,8 +17,11 @@ export class FavoriteComponent {
   fJSON: string = "Favorites";
   favorite: Favorites[] = [];
   base: string = "";
+ 
   @Input() userId: string | null = null;
   /** Favorite ctor */
+
+  
   constructor(private http: HttpClient, private question: QuestionService, @Inject('BASE_URL') baseUrl) {
     this.base = baseUrl + 'Favorite'
     this.getFavorites(this.userId);
