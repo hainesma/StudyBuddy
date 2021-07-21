@@ -1,6 +1,9 @@
-<h2>Answer:</h2>
+<div class="newDiv">
+<h2>Questions</h2>
+</div>
 <div *ngFor="let q of question" class='newDiv'>
   <p>{{q.text}}</p>
   <button (click)="getAnswer(q.id)">View Answer</button>
 
 </div>
+<div class="newDiv"> <a routerLink='/add-question'>Add a Question</a></div>
