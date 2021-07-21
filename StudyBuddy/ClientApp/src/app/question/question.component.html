@@ -1,5 +1,7 @@
-<div><h2>{{qJSON}}</h2></div>
-<div *ngFor="let q of question">
-    <p>{{q.text}}</p>
+﻿<h2>C# Study Questions</h2>
+<div *ngFor="let q of question; index as i " class='newDiv'>
+  <p>{{q.text}}</p>
+  <div [ngStyle] = "styleList" ><p>{{q.answer}}</p></div>
 </div>
-
+  <button (click)="togglePost()">View Answers</button>
+  
