@@ -4,6 +4,8 @@ import { Favorites } from "../favorites";
 import { Questions } from '../questions';
 import { QuestionService } from '../question.service';
 
+
+
 @Component({
     selector: 'app-favorite',
     templateUrl: './favorite.component.html',
@@ -15,8 +17,11 @@ export class FavoriteComponent {
   fJSON: string = "Favorites";
   favorite: Favorites[] = [];
   base: string = "";
-  @Input() userId: string = "";
-    /** Favorite ctor */
+ 
+  @Input() userId: string | null = null;
+  /** Favorite ctor */
+
+  
   constructor(private http: HttpClient, private question: QuestionService, @Inject('BASE_URL') baseUrl) {
     this.base = baseUrl + 'Favorite'
     this.getFavorites(this.userId);
