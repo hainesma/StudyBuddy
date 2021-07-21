@@ -16,8 +16,10 @@ import { QuestionService } from '../question.service';
 export class FavoriteComponent {
   fJSON: string = "Favorites";
   favorite: Favorites[] = [];
+  ff: Favorites | null = null;
   base: string = "";
- 
+
+  @Input() questionId: number | null = null;
   @Input() userId: string | null = null;
   /** Favorite ctor */
 
@@ -38,5 +40,20 @@ export class FavoriteComponent {
         this.favorite = fList;
         console.log(fList);
       })
+  }
+
+  clickme3(userId: string, questionId: number) {
+    this.userId = userId;
+    this.questionId = questionId
+    this.deleteFavorite(this.userId, this.questionId);
+  }
+
+  deleteFavorite(userId: string, questionId: number) {
+    let f: Favorites = { questionID: questionId, userID: userId, favoriteID: null }
+    this.http.delete<Favorites>(this.base + '/' + f.userID + '/d=' + f.questionID).subscribe(fList => {
+      this.ff = fList;
+      this.getFavorites(userId);
+      console.log(fList);
+    })
   }
 }
