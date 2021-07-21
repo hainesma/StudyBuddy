@@ -16,6 +16,7 @@ namespace StudyBuddy.Controllers
 
 
         [HttpGet]
+        [Route("/all")]
         public List<Favorite> GetQuestions()
         {
             List<Favorite> fList = new List<Favorite>();
