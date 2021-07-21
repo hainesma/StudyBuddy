@@ -12,6 +12,6 @@ export class QuestionService{
 
 
 getQuestions(@Inject('BASE_URL') baseUrl: string): any{
-    return this.http.get<Questions[]>(baseUrl + 'Question');
+    return this.http.get<Questions[]>(baseUrl + 'Question/All');
 }
 }
