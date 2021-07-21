@@ -35,5 +35,22 @@ namespace StudyBuddy.Controllers
             db.SaveChanges();
         }
 
+        [HttpGet]
+        [Route("Id={userSelection}")]
+
+        public Question getAnswer(int userSelection)
+        {
+            List<Question> qAns = GetQuestions();
+            foreach (Question q in qAns)
+            {
+                if (q.Id == userSelection)
+                {
+
+                    return q;
+                }
+            }
+            return null;
+
+        }
     }
 }
