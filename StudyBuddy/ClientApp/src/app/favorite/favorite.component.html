@@ -1,5 +1,8 @@
 <h2>{{fJSON}}</h2>
 <h3>{{userId}}</h3>
+
+
+
 <form *ngIf="userId == null">
   <p>Please input username</p>
   <input type="text" name="userId" #userId/>
@@ -8,4 +11,5 @@
 
 <div *ngFor="let f of favorite">
   <p>Question Favorited: {{f.id}}. {{f.text}}</p>
+  <button (click)="clickme3(userId, f.id); getFavorites(userId)">Remove</button>
 </div>
