@@ -1,6 +1,6 @@
-<h2>fJSON</h2>
-
-<form>
+<h2>{{fJSON}}</h2>
+<h3>{{userId}}</h3>
+<form *ngIf="userId == null">
   <p>Please input username</p>
   <input type="text" name="userId" #userId/>
   <button (click)="clickme(userId.value)">Login</button>
