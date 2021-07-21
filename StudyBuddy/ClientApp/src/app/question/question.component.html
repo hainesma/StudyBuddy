@@ -2,5 +2,10 @@
 <div *ngFor="let q of question" class='newDiv'>
   <p>{{q.text}}</p>
   <button (click)="getAnswer(q.id)">View Answer</button>
+  <form>
+    <p>Please input username</p>
+    <input type="text" name="userId" #userId />
 
+    <button (click)="clickme2(userId.value, q.id)">Login</button>
+  </form>
 </div>
