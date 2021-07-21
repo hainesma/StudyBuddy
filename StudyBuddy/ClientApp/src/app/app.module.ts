@@ -34,8 +34,7 @@ import { AnswerComponent } from './answer/answer.component';
       { path: 'question', component: QuestionComponent },
       { path: 'favorite', component: FavoriteComponent },
       { path: 'add-question', component: AddQuestionComponent },
-      { path: 'answer', component: AnswerComponent }
-   
+      {path: 'answer', component: AnswerComponent}
 
     ])
   ],
