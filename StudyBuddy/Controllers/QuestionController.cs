@@ -32,7 +32,8 @@ namespace StudyBuddy.Controllers
         [Route("add/{text}/{answer}")]
         public void AddQuestion(string text, string answer)
         {
-            Question newQ = new Question() { Text = text, Answer = answer };
+            string newText = text + '?';
+            Question newQ = new Question() { Text = newText, Answer = answer };
             db.Questions.Add(newQ);
             db.SaveChanges();
         }
@@ -54,6 +55,22 @@ namespace StudyBuddy.Controllers
             return null;
 
         }
+        [HttpDelete]
+        [Route("Delete/Id={userSelection}")]
+        public void RemoveQuestion(int userSelection)
+        {
+            List<Question> quest = new List<Question>();
+            quest = db.Questions.Where(x => x.Id == userSelection).ToList();
+            foreach (Question q in quest)
+            {
+                if (q.Id == userSelection)
+                {
 
+                    db.Questions.Remove(q);
+                }
+            }
+            db.SaveChanges();
+        }
     }
+
 }

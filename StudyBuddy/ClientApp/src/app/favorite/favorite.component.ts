@@ -20,13 +20,24 @@ export class FavoriteComponent {
   base: string = "";
 
   @Input() questionId: number | null = null;
-  @Input() userId: string | null = null;
+  @Input() userId: string | null = document.cookie;
   /** Favorite ctor */
 
   
   constructor(private http: HttpClient, private question: QuestionService, @Inject('BASE_URL') baseUrl) {
     this.base = baseUrl + 'Favorite'
     this.getFavorites(this.userId);
+
+    console.log(document.cookie);
+    let values = document.cookie.split(';');
+    for (let i = 0; i < values.length; i++) {
+      let v = values[i];
+      let kvp = v.split('=');
+      console.log(kvp[0]);
+      if (kvp[0].trim() === "UserId") {
+        this.userId = (kvp[1]);
+      }
+    }
   }
 
   clickme(userId: string) {
@@ -35,7 +46,8 @@ export class FavoriteComponent {
   }
 
   getFavorites(userId: string) {
-    this.http.get<Favorites[]>(this.base + '/User=' + userId)
+    console.log(this.userId);
+    this.http.get<Favorites[]>(this.base + '/User=' + this.userId)
       .subscribe(fList => {
         this.favorite = fList;
         console.log(fList);

@@ -10,11 +10,11 @@ html, body {
 }
 
 .newDiv {
-  min-width: 500px;
-  margin-left: 33%;
-  margin-right: 33%;
+  min-width: 600px;
+  margin-left: 30%;
+  margin-right: 30%;
   margin-bottom: 20px;
-  background-color: #eee;
+  background-color: rgba(255, 255, 255, 0.308);
   box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
   align-content: center;
   padding: 5px;
@@ -24,6 +24,9 @@ html, body {
 h1 {
   text-align: center;
 }
+h2{
+    font-weight: bolder;
+}
 
 img {
   border: 3px solid rgba(0, 0, 0, 0.514);
@@ -32,3 +35,62 @@ img {
 label {
   padding: 3px;
 }
+.b {
+ 
+  background-color: rgba(255, 255, 255, 0.438);
+  opacity: 75%;
+  border: solid 1px;
+}
+
+  .b:hover {
+    opacity: 100%;
+  }
+
+.b2 {
+  float: right;
+  background-color: none;
+  opacity: 0%;
+  border: none;
+}
+
+  .b2:hover {
+    opacity: 100%;
+  }
+
+
+  .favButton{
+      float: left;
+      height: 20px;
+      width: auto;
+      border: none;
+      background-color: rgba(255, 255, 255, 0);
+  }
+
+  a:link {
+    color: rgb(2, 0, 5);
+    background-color: transparent;
+    text-decoration: none;
+  }
+  
+  a:visited {
+    color: rgba(0, 0, 0, 0.548);
+    background-color: transparent;
+    text-decoration: none;
+  }
+  
+  a:hover {
+    color: rgba(0, 12, 124, 0.61);
+    background-color: transparent;
+    text-decoration: underline;
+  }
+
+.b3{
+  float: right;
+  background-color: none;
+  opacity: 75%;
+  border: none;
+}
+
+  .b3:hover {
+    opacity: 100%;
+  }
