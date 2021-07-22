@@ -1,16 +1,22 @@
+﻿<!--<h3>{{userId.value}}</h3>-->
+
 <div class="newDiv">
   <h2>Questions</h2>
 </div>
-<div *ngFor="let q of question" class='newDiv'>
-  <p><button class="b2" (click)="removeQuestion(q.id)">x</button></p>
-  <p>{{q.text}}</p>
-  <button (click)="getAnswer(q.id)">View Answer</button>
-  <form>
-    <p>Please input username</p>
-    <input type="text" name="userId" #userId />
+<form class="newDiv">
+  <p>Input UserName to Access Favorite List</p>
+  <input type="text" name="userId" placeholder="UserName" #userId />
+  <button class="b" (click)="getUserId(userId.value)">Login</button>
+</form><br />
 
-    <button (click)="clickme2(userId.value, q.id)" style="float:right; border:none"><img class="favButton" src='star.png' /></button>
-  </form>
+<div *ngFor="let q of question" class='newDiv'>
+  <p>
+  <button (click)="clickme2(userId.value, q.id)" style="float:left; border:none; background-color: transparent;"><img class="favButton" src='star.png' /></button>
+  <button class="b2" (click)="removeQuestion(q.id)" style="background-color: transparent">X</button>
+  </p>
+  <p>{{q.text}}</p>
+  <button class="b" (click)="getAnswer(q.id)">View Answer</button>
+
 </div>
 <div class="newDiv"> <a routerLink='/add-question'>Add a Question</a></div>
 <div class="newDiv"> <a routerLink='/favorite'>View Favorites</a></div>
