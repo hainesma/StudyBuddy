@@ -14,8 +14,4 @@ export class FavoriteService {
     return this.http.get<Favorites[]>(baseUrl + 'Favorite/all' );
   }
 
-  addFavorite(@Inject('BASE_URL') baseUrl: string): any {
-    let f: Favorites = { questionID: null, userID: "", favoriteID: null}
-    return this.http.post<Favorites[]>(baseUrl + 'Favorite/all', f);
-  }
 }
