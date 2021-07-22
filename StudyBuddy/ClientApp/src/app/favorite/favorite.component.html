@@ -10,6 +10,8 @@
 </form>
 
 <div *ngFor="let f of favorite; index as i">
+
   <p>Question Favorited: {{f.id}}. {{f.text}}</p>
   <button (click)="clickme3(userId, f.id); getFavorites(userId)">Remove</button>
-  </div>
+ </div>
+
