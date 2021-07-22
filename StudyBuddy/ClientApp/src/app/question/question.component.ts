@@ -25,7 +25,7 @@ export class QuestionComponent {
   @Input() questionId: number | null = null;
   @Input() userId: string | null = null;
 
-  constructor(private http: HttpClient, private favorite: FavoriteService, private router: Router, @Inject('BASE_URL') baseUrl) {
+  constructor(private http: HttpClient, private favorites: FavoriteService, private router: Router, @Inject('BASE_URL') baseUrl) {
     this.base = baseUrl + "Question";
     this.base2 = baseUrl + "Favorite"
     this.getQuestions();
