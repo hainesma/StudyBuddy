@@ -2,6 +2,7 @@
 <h2>Questions</h2>
 </div>
 <div *ngFor="let q of question" class='newDiv'>
+  <p><button class="b2" (click)="removeQuestion(q.id)">x</button></p>
   <p>{{q.text}}</p>
   <button (click)="getAnswer(q.id)">View Answer</button>
   <form>
