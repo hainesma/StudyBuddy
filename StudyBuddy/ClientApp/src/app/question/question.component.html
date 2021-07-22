@@ -1,3 +1,5 @@
+<h3>{{userId.value}}</h3>
+
 <form>
 <p>Please input username</p>
 <input type="text" name="userId" #userId />
@@ -11,9 +13,10 @@
   <p><button class="b2" (click)="removeQuestion(q.id)">x</button></p>
   <p>{{q.text}}</p>
   <button (click)="getAnswer(q.id)">View Answer</button>
-  <form *ngIf="userId != null">
-
-    <button (click)="clickme2(userId, q.id)">Favorite</button>
+  <br/>
+  <form>
+    <br/>
+      <button (click)="clickme2(userId.value, q.id)">Favorite</button>
   </form>
 </div>
 <div class="newDiv"> <a routerLink='/add-question'>Add a Question</a></div>
