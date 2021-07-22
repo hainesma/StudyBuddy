@@ -10,12 +10,13 @@ html, body {
 }
 
 .newDiv {
-  min-width: 500px;
-  margin-left: 25%;
-  margin-right: 30%;
-  margin-bottom: 20px;
+  max-width: 600px;
+  margin-right: auto;
+  margin-left: auto;
+  margin-bottom: 10px;
   background-color: rgba(255, 255, 255, 0.308);
   box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+  border-radius: 5px;
   align-content: center;
   padding: 5px;
   text-align: center;
@@ -36,10 +37,10 @@ label {
   padding: 3px;
 }
 .b {
- 
   background-color: rgba(255, 255, 255, 0.438);
   opacity: 75%;
   border: solid 1px;
+  border-radius: 5px;
 }
 
   .b:hover {
@@ -51,6 +52,7 @@ label {
   background-color: none;
   opacity: 0%;
   border: none;
+  border-radius: 5px;
 }
 
   .b2:hover {
