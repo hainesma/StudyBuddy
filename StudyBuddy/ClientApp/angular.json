@@ -73,7 +73,10 @@
             "karmaConfig": "src/karma.conf.js",
             "styles": ["src/styles.css"],
             "scripts": [],
-            "assets": ["src/assets"]
+            "assets": [
+              "src/assets"
+                , "Orca Favicon.png"
+            ]
           }
         },
         "lint": {

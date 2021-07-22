@@ -3,3 +3,4 @@ export interface Favorites {
     userID:     string;
     questionID: number;
 }
+//exporting our Favorites interface / properties
