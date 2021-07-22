@@ -61,12 +61,11 @@ export class QuestionComponent {
 
   addFavorite(userId: string, questionId: number) {
     let f: Favorites = { questionID: questionId, userID: userId, favoriteID: null }
-
-    this.http.post<Favorites[]>(this.base2 + "/" + this.userId + "/id=" + questionId, f).subscribe(fList => {
-      this.favorite = fList;
-      console.log(fList);
-      console.log(this.userId);
-    })
+      this.http.post<Favorites[]>(this.base2 + "/" + this.userId + "/id=" + questionId, f).subscribe(fList => {
+        this.favorite = fList;
+        console.log(fList);
+        console.log(this.userId);
+      })
   }
 
   getUserId(userId: string) {
