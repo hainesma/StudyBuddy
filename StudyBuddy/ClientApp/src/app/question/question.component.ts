@@ -25,7 +25,7 @@ export class QuestionComponent {
   favorite: Favorites[] = [];
   base2: string = "";
   @Input() questionId: number | null = null;
-  @Input() userId: string | null = null;
+  userId: string | null = document.cookie[3];
 
   constructor(private http: HttpClient, private favorites: FavoriteService, private router: Router, @Inject('BASE_URL') baseUrl) {
     this.base = baseUrl + "Question";
@@ -42,17 +42,27 @@ export class QuestionComponent {
   }
 
   clickme2(userId: string, questionId: number) {
-    this.userId = userId;
     this.questionId = questionId;
-    this.addFavorite(this.userId, this.questionId);
+    this.addFavorite(userId, this.questionId);
+    console.log(this.userId);
   }
 
   addFavorite(userId: string, questionId: number) {
-    let f: Favorites = { questionID: questionId, userID: userId, favoriteID: null }
+    let f: Favorites = { questionID: questionId, userID: this.userId, favoriteID: null }
+
     this.http.post<Favorites[]>(this.base2 + "/" + userId + "/id=" + questionId, f).subscribe(fList => {
       this.favorite = fList;
       console.log(fList);
+      console.log(this.userId);
     })
+  }
+
+  getUserId(userId: string) {
+    console.log(this.userId);
+    this.userId = userId;
+    document.cookie = this.userId;
+    console.log(document.cookie);
+    console.log(this.userId);
   }
 
   getAnswer(userSelection: number) {

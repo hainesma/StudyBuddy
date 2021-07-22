@@ -20,7 +20,7 @@ export class FavoriteComponent {
   base: string = "";
 
   @Input() questionId: number | null = null;
-  @Input() userId: string | null = null;
+  @Input() userId: string | null = document.cookie;
   /** Favorite ctor */
 
   

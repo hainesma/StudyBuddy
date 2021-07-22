@@ -9,7 +9,9 @@
   <button (click)="clickme(userId.value)">Login</button>
 </form>
 
-<div *ngFor="let f of favorite">
+<div *ngFor="let f of favorite; index as i">
+  <div *ngIf="favorite[i + 1] != favorite[i]">
   <p>Question Favorited: {{f.id}}. {{f.text}}</p>
   <button (click)="clickme3(userId, f.id); getFavorites(userId)">Remove</button>
+  </div>
 </div>
