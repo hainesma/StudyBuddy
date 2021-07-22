@@ -1,15 +1,22 @@
+<h3>{{userId.value}}</h3>
+
+<form>
+<p>Please input username</p>
+<input type="text" name="userId" #userId />
+<button (click)="getUserId(userId.value)">Login</button>
+</form>
+
 <div class="newDiv">
-<h2>Questions</h2>
+  <h2>Questions</h2>
 </div>
 <div *ngFor="let q of question" class='newDiv'>
   <p><button class="b2" (click)="removeQuestion(q.id)">x</button></p>
   <p>{{q.text}}</p>
   <button (click)="getAnswer(q.id)">View Answer</button>
+  <br/>
   <form>
-    <p>Please input username</p>
-    <input type="text" name="userId" #userId />
-
-    <button (click)="clickme2(userId.value, q.id)">Login</button>
+    <br/>
+      <button (click)="clickme2(userId.value, q.id)">Favorite</button>
   </form>
 </div>
 <div class="newDiv"> <a routerLink='/add-question'>Add a Question</a></div>
