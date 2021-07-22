@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace StudyBuddy.Models
 {
+    // Here we created our favorite model with properties being pulled from our database, we started this project code first
     public class Favorite
     {
         [Key]

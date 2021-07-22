@@ -13,7 +13,7 @@ import { FavoriteService } from './favorite.service';
 import { AddQuestionComponent } from './add-question/add-question.component';
 import { AnswerComponent } from './answer/answer.component';
 
-
+//Importing all of our modules into our project and setting filepaths to the respective components
 @NgModule({
   declarations: [
     AppComponent,

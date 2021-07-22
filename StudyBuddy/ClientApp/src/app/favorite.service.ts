@@ -9,7 +9,7 @@ import { Favorites } from './favorites';
 export class FavoriteService {
   constructor(private http: HttpClient) {
   }
-
+    //concatonating / appending our Favorites into our base url
   getFavorites(@Inject('BASE_URL') baseUrl: string): any {
     return this.http.get<Favorites[]>(baseUrl + 'Favorite/all' );
   }
