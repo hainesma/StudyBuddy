@@ -3,3 +3,4 @@ export interface Questions {
     text:   string;
     answer: string;
 }
+//exporting the questions interface with our properties
