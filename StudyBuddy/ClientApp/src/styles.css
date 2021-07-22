@@ -43,3 +43,10 @@ label {
   .b2:hover {
     opacity: 100%;
   }
+
+  .favButton{
+      float: left;
+      height: 25px;
+      width: 25px;
+      border: none;
+  }
