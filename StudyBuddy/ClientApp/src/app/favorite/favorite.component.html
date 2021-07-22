@@ -1,15 +1,25 @@
-<h2>{{fJSON}}</h2>
-<h3>{{userId}}</h3>
+<div class ="newDiv">
+  <h1>{{userId}}</h1>
+  <h2>Favorite Questions</h2>
+</div>
 
+<div class="newDiv">
+  <form *ngIf="userId == null">
+    <p>Please input username</p>
+    <input type="text" name="userId" #userId/>
+    <button class="b"(click)="clickme(userId.value)">Login</button>
+  </form>
+</div>
 
-
-<form *ngIf="userId == null">
-  <p>Please input username</p>
-  <input type="text" name="userId" #userId/>
-  <button (click)="clickme(userId.value)">Login</button>
-</form>
-
+<<<<<<< HEAD
+<div class="newDiv" *ngFor="let f of favorite">
+  <button class="b3" (click)="clickme3(userId, f.id); getFavorites(userId)" style="background-color: transparent;">X</button>
+  <h3>{{f.text}}</h3>
+  <h5>Answer: {{f.answer}}</h5>
+</div>
+=======
 <div *ngFor="let f of favorite; index as i">
   <p>Question Favorited: {{f.id}}. {{f.text}}</p>
   <button (click)="clickme3(userId, f.id); getFavorites(userId)">Remove</button>
   </div>
+>>>>>>> 010ebcf2944b7c6afc56566c62b8130f2e7ee205
