@@ -4,17 +4,20 @@
 <div class="newDiv">
   <h2>Questions</h2>
 </div>
-<form class="newDiv">
+
+<div class="newDiv" *ngIf="userId !== null">
+  Current user: {{userId.value}}
+<form>
   <p>Input UserName to Access Favorite List</p>
   <input type="text" name="userId" placeholder="UserName" #userId />
-  <button class="b" (click)="getUserId(userId.value)">Login</button>
-
-</form><br />
+  <button class="b" (click)="getUserId(userId.value)">Enter User</button>
+  </form>
+</div>
 
 <div *ngFor="let q of question" class='newDiv'>
   <p>
-  <button (click)="clickme2(userId.value, q.id)" style="float:left; border:none; background-color: transparent;"><img class="favButton" src='star.png' /></button>
-  <button class="b2" (click)="removeQuestion(q.id)" style="background-color: transparent">X</button>
+    <button (click)="clickme2(userId.value, q.id)" style="float:left; border:none; background-color: transparent;"><img class="favButton" src='star.png' /></button>
+    <button class="b2" (click)="removeQuestion(q.id)" style="background-color: transparent">X</button>
   </p>
   <p>{{q.text}}</p>
   <button class="b" (click)="getAnswer(q.id)">View Answer</button>
