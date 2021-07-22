@@ -11,7 +11,7 @@ import { Router, RouterModule} from '@angular/router';
   styleUrls: ['./answer.component.css'],
   providers: [FavoriteService, QuestionService, RouterModule]
 })
-/** Question component*/
+/** Answer component*/
 export class AnswerComponent {
 
   qJSON: string = "Answer";
