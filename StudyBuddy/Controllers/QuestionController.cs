@@ -30,7 +30,8 @@ namespace StudyBuddy.Controllers
         [Route("add/{text}/{answer}")]
         public void AddQuestion(string text, string answer)
         {
-            Question newQ = new Question() { Text = text, Answer = answer };
+            string newText = text + '?';
+            Question newQ = new Question() { Text = newText, Answer = answer };
             db.Questions.Add(newQ);
             db.SaveChanges();
         }
