@@ -61,30 +61,8 @@ export class AddQuestionComponent {
 
 
   }
-  toggleText() {
-    this.hidePost = !this.hidePost,
-      this.changeHidden();
-  }
 
-  changeHidden() {
-    this.styleList = {
-      'display': this.hidePost ? 'none' : 'block'
-    }
-    this.styleList2 = {
-      'display': this.hideText ? 'none' : 'block'
-    }
-  }
-  styleList: object = {
-    'display': this.hidePost ? 'none' : 'block'
-
-  }
-  styleList2: object = {
-    'display': this.hideText ? 'none' : 'block'
-
-  }
-  //document.getElementById("confirm").onclick = function () { myFunction() };
-
-  myFunction() {
+  displayConfirm() {
     document.getElementById("confirm").innerText = "Your question has been submitted.";
   }
 
