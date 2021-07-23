@@ -40,6 +40,19 @@ export class FavoriteComponent {
     }
   }
 
+  getUserId(userId: string) {
+    console.log(this.userId);
+    this.userId = userId;
+    if (this.userId.includes(';')) {
+      document.cookie = this.userId.replace(';', ' ')
+    } else {
+      document.cookie = this.userId;
+    }
+
+    console.log(document.cookie);
+    console.log(this.userId);
+  }
+
   clickme(userId: string) {
     this.userId = userId;
     this.getFavorites(this.userId);
@@ -54,9 +67,9 @@ export class FavoriteComponent {
       })
   }
 
-  clickme3(userId: string, questionId: number) {
-    this.userId = userId;
-    this.questionId = questionId
+  clickme3(questionId: number) {
+    this.questionId = questionId;
+    console.log(this.userId);
     this.deleteFavorite(this.userId, this.questionId);
   }
 
