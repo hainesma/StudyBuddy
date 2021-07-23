@@ -82,6 +82,7 @@ namespace StudyBuddy.Controllers
         public void AddFavorite(string userId, int id)
         {
             //storing a new favorite, "f", in our database of favorites then saving the changes in our database
+
             Question q = db.Questions.Where(x => x.Id == id).ToList().First();
             Favorite f = new Favorite() { UserID = userId, QuestionID = q.Id };
             List<Favorite> Fav = db.Favorites.Where(x => x.QuestionID == f.QuestionID && x.UserID == f.UserID).ToList();
