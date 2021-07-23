@@ -71,7 +71,12 @@ export class QuestionComponent {
   getUserId(userId: string) {
     console.log(this.userId);
     this.userId = userId;
-    document.cookie = this.userId;
+    if (this.userId.includes(';')) {
+     document.cookie = this.userId.replace(';', ' ')
+    } else {
+      document.cookie = this.userId;
+    }
+
     console.log(document.cookie);
     console.log(this.userId);
   }
