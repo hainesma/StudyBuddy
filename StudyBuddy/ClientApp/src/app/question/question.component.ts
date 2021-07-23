@@ -10,7 +10,7 @@ import { Favorites } from "../favorites";
   selector: 'app-question',
   templateUrl: './question.component.html',
   styleUrls: ['./question.component.css'],
-  providers: [FavoriteService, QuestionService  ]
+  providers: [FavoriteService, QuestionService]
 })
 /** Question component*/
 export class QuestionComponent {
@@ -46,7 +46,7 @@ export class QuestionComponent {
   }
 
   getQuestions() {
-    this.http.get<Questions[]>(this.base+ '/All')
+    this.http.get<Questions[]>(this.base + '/All')
       .subscribe(qList => {
         this.question = qList;
         console.log(qList)
@@ -61,11 +61,11 @@ export class QuestionComponent {
 
   addFavorite(userId: string, questionId: number) {
     let f: Favorites = { questionID: questionId, userID: userId, favoriteID: null }
-      this.http.post<Favorites[]>(this.base2 + "/" + this.userId + "/id=" + questionId, f).subscribe(fList => {
-        this.favorite = fList;
-        console.log(fList);
-        console.log(this.userId);
-      })
+    this.http.post<Favorites[]>(this.base2 + "/" + this.userId + "/id=" + questionId, f).subscribe(fList => {
+      this.favorite = fList;
+      console.log(fList);
+      console.log(this.userId);
+    })
   }
 
   getUserId(userId: string) {
@@ -97,6 +97,12 @@ export class QuestionComponent {
       this.getQuestions();
       console.log(qList);
     })
+  }
+  switchImage(id: number) {
+    console.log(id);
+    document.getElementById(id.toString()).innerHTML
+      = "<img class='favButton' src = 'star.png' />";
+
   }
 }
 
