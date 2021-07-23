@@ -5,6 +5,7 @@
   <h2>Questions</h2>
 </div>
 
+
 <div class="newDiv">
   {{userId.value}}
 <form>
@@ -16,7 +17,12 @@
 
 <div *ngFor="let q of question" class='newDiv'>
   <p>
-    <button (click)="clickme2(userId.value, q.id)" style="float:left; border:none; background-color: transparent;"><img class="favButton" src='star.png' /></button>
+    <button (click)="clickme2(userId.value, q.id); switchImage(q.id)"
+            style="float:left; border:none;
+            background-color: transparent;" id="{{q.id}}">
+           <img class="favButton" src='outlineStar.png' />
+    </button>
+
     <button class="b2" (click)="removeQuestion(q.id)" style="background-color: transparent">X</button>
   </p>
   <p>{{q.text}}</p>

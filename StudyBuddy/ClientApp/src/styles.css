@@ -38,6 +38,10 @@ ul {
   position: relative;
   animation: moveit 3s infinite;
   list-style-type: none;
+  transition: transform .2s;
+}
+ul:hover {
+  transform: scale(18);
 }
 
 @keyframes moveit {
@@ -45,10 +49,9 @@ ul {
     left: 0px;
     top: 10px;
   }
-
-  25% {
-    left: 50px;
-    top: 20px;
+  25%{
+      left: 50px;
+      top: 20px;
   }
 
   50% {
@@ -102,6 +105,7 @@ label {
   width: auto;
   border: none;
   background-color: rgba(255, 255, 255, 0);
+  opacity: 100%;
 }
 
 a:link {
@@ -132,3 +136,14 @@ a:hover {
   .b3:hover {
     opacity: 100%;
   }
+
+.zoom {
+  padding: 50px;
+  background-color: green;
+  transition: transform .2s; /* Animation */
+  width: 200px;
+  height: 200px;
+  margin: 0 auto;
+}
+
+  
