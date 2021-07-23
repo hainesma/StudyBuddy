@@ -1,40 +1,37 @@
+
 <header>
-  <nav
-    class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-transparent border-bottom box-shadow mb-3"
-  >
+  <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-transparent border-bottom box-shadow mb-3">
+    <ul>
+      <li><img src='Orca Favicon.png' style="float:left; height: 40px; width: auto; border:none" />
+      <img src='Orca Favicon.png' style="float:left; height: 40px; width: auto; border:none" />
+      <img src='Orca Favicon.png' style="float:left; height: 40px; width: auto; border:none" />
+      <img src='Orca Favicon.png' style="float:left; height: 40px; width: auto; border:none" /></li>
+    </ul>
     <div class="container">
       <a class="navbar-brand" [routerLink]="['/']">QuizGit</a>
-      <button
-        class="navbar-toggler"
-        type="button"
-        data-toggle="collapse"
-        data-target=".navbar-collapse"
-        aria-label="Toggle navigation"
-        [attr.aria-expanded]="isExpanded"
-        (click)="toggle()"
-      >
+      <button class="navbar-toggler"
+              type="button"
+              data-toggle="collapse"
+              data-target=".navbar-collapse"
+              aria-label="Toggle navigation"
+              [attr.aria-expanded]="isExpanded"
+              (click)="toggle()">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div
-        class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse"
-        [ngClass]="{ show: isExpanded }"
-      >
-        <ul class="navbar-nav flex-grow">
-          <li
-            class="nav-item"
-            [routerLinkActive]="['link-active']"
-            [routerLinkActiveOptions]="{ exact: true }"
-          >
+      <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse"
+           [ngClass]="{ show: isExpanded }">
+        <ol class="navbar-nav flex-grow">
+          <li class="nav-item"
+              [routerLinkActive]="['link-active']"
+              [routerLinkActiveOptions]="{ exact: true }">
             <a class="nav-link text-dark" [routerLink]="['/']">Questions</a>
           </li>
           <li class="nav-item">
           </li>
           <li class="nav-item" [routerLinkActive]="['link-active']">
-            <a class="nav-link text-dark" [routerLink]="['/favorite']"
-              >Favorites</a
-            >
+            <a class="nav-link text-dark" [routerLink]="['/favorite']">Favorites</a>
           </li>
-        </ul>
+        </ol>
       </div>
     </div>
   </nav>

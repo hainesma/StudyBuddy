@@ -10,12 +10,13 @@ html, body {
 }
 
 .newDiv {
-  min-width: 500px;
-  margin-left: 25%;
-  margin-right: 30%;
-  margin-bottom: 20px;
+  max-width: 600px;
+  margin-right: auto;
+  margin-left: auto;
+  margin-bottom: 10px;
   background-color: rgba(255, 255, 255, 0.308);
   box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+  border-radius: 5px;
   align-content: center;
   padding: 5px;
   text-align: center;
@@ -24,22 +25,44 @@ html, body {
 h1 {
   text-align: center;
 }
-h2{
-    font-weight: bolder;
+
+h2 {
+  font-weight: bolder;
 }
 
 img {
   border: 3px solid rgba(0, 0, 0, 0.514);
 }
 
+ul {
+  position: relative;
+  animation: moveit 3s infinite;
+  list-style-type: none;
+}
+
+@keyframes moveit {
+  0% {
+    left: 0px;
+  }
+
+  50% {
+    left: 100px;
+  }
+
+  100% {
+    left: 0px;
+  }
+}
+
 label {
   padding: 3px;
 }
+
 .b {
- 
   background-color: rgba(255, 255, 255, 0.438);
   opacity: 75%;
   border: solid 1px;
+  border-radius: 5px;
 }
 
   .b:hover {
@@ -51,6 +74,7 @@ label {
   background-color: none;
   opacity: 0%;
   border: none;
+  border-radius: 5px;
 }
 
   .b2:hover {
@@ -58,33 +82,33 @@ label {
   }
 
 
-  .favButton{
-      float: left;
-      height: 20px;
-      width: auto;
-      border: none;
-      background-color: rgba(255, 255, 255, 0);
-  }
+.favButton {
+  float: left;
+  height: 20px;
+  width: auto;
+  border: none;
+  background-color: rgba(255, 255, 255, 0);
+}
 
-  a:link {
-    color: rgb(2, 0, 5);
-    background-color: transparent;
-    text-decoration: none;
-  }
-  
-  a:visited {
-    color: rgba(0, 0, 0, 0.548);
-    background-color: transparent;
-    text-decoration: none;
-  }
-  
-  a:hover {
-    color: rgba(0, 12, 124, 0.61);
-    background-color: transparent;
-    text-decoration: underline;
-  }
+a:link {
+  color: rgb(2, 0, 5);
+  background-color: transparent;
+  text-decoration: none;
+}
 
-.b3{
+a:visited {
+  color: rgba(0, 0, 0, 0.548);
+  background-color: transparent;
+  text-decoration: none;
+}
+
+a:hover {
+  color: rgba(0, 12, 124, 0.61);
+  background-color: transparent;
+  text-decoration: underline;
+}
+
+.b3 {
   float: right;
   background-color: none;
   opacity: 75%;
