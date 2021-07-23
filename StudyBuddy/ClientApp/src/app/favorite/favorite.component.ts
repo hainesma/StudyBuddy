@@ -18,6 +18,7 @@ export class FavoriteComponent {
   favorite: Favorites[] = [];
   ff: Favorites | null = null;
   base: string = "";
+  reducedList: Favorites[] = [];
 
   @Input() questionId: number | null = null;
   @Input() userId: string | null = document.cookie;
@@ -29,7 +30,11 @@ export class FavoriteComponent {
     this.getFavorites(this.userId);
 
     console.log(document.cookie);
+    // Values is the array of strings resulting from splitting up the cookie
     let values = document.cookie.split(';');
+    console.log(values);
+    console.log(values.length);
+    // This for loop cuts down each string to the actual UserId
     for (let i = 0; i < values.length; i++) {
       let v = values[i];
       let kvp = v.split('=');
@@ -56,6 +61,7 @@ export class FavoriteComponent {
   clickme(userId: string) {
     this.userId = userId;
     this.getFavorites(this.userId);
+
   }
 
   getFavorites(userId: string) {
@@ -64,7 +70,10 @@ export class FavoriteComponent {
       .subscribe(fList => {
         this.favorite = fList;
         console.log(fList);
+        console.log(this.favorite);
       })
+
+    //this.cleanUpFavoritesList(this.favorite);
   }
 
   clickme3(questionId: number) {
@@ -81,4 +90,19 @@ export class FavoriteComponent {
       console.log(fList);
     })
   }
+
+  //cleanUpFavoritesList(favorite: Favorites[]) {
+
+    
+  //  for (let i = 0; i < this.favorite.length; i++) {
+  //    // if reducedList doesn't contain the favorite from list favorite already, add it
+  //    for (let j = 0; j < this.reducedList.length; j++) {
+  //      if (this.reducedList[j].userID !== this.favorite[i].userID && this.reducedList[j].questionID !== this.favorite[i].questionID) {
+  //        this.reducedList.push(this.favorite[i]);
+  //      }
+  //    }
+      
+  //  }
+  //  console.log(this.reducedList);
+  //}
 }
