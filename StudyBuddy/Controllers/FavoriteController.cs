@@ -83,9 +83,13 @@ namespace StudyBuddy.Controllers
         {
             //storing a new favorite, "f", in our database of favorites then saving the changes in our database
 
+            // q  takes the int id and gives us the corresponding question object
             Question q = db.Questions.Where(x => x.Id == id).ToList().First();
+            // f is the Favorite to be added
             Favorite f = new Favorite() { UserID = userId, QuestionID = q.Id };
+            // Fav is a list of the favorites already in the Favorites table that match the new favorite
             List<Favorite> Fav = db.Favorites.Where(x => x.QuestionID == f.QuestionID && x.UserID == f.UserID).ToList();
+            // Fav must be an empty list, showing that there would be no duplicates, in order for the new favorite to be added
             if(Fav.Count == 0)
             {
                 db.Favorites.Add(f);
