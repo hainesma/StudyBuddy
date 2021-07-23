@@ -1,12 +1,12 @@
 <div class ="newDiv">
-  <h1>{{userId}}</h1>
+  <h1>{{userId.value}}</h1>
   <h2>Favorite Questions</h2>
 </div>
 
-<div class="newDiv" *ngIf="userId == null">
+<div class="newDiv">
   <form >
-    <p>Please input username</p>
-    <input type="text" name="userId" #userId/>
+    <p>Input Username to View Favorites</p>
+    <input type="text" name="userId"/>
     <button class="b"(click)="clickme(userId.value)">Login</button>
   </form>
 </div>
@@ -14,7 +14,7 @@
 
 <div class="newDiv" *ngFor="let f of favorite">
   <button class="b3" (click)="clickme3(userId, f.id); getFavorites(userId)" style="background-color: transparent;">X</button>
-  <h3>{{f.text}}</h3>
+  <h3 *ngIf="userId !== undefined">{{f.text}}</h3>
   <h5>Answer: {{f.answer}}</h5>
 </div>
 

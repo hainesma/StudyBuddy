@@ -43,14 +43,25 @@ ul {
 @keyframes moveit {
   0% {
     left: 0px;
+    top: 10px;
+  }
+  25%{
+      left: 50px;
+      top: 20px;
   }
 
   50% {
     left: 100px;
+    top: 10px;
+  }
+  75%{
+      top: 0px;
+      left: 50px;
   }
 
   100% {
     left: 0px;
+    top: 10px;
   }
 }
 
@@ -88,6 +99,7 @@ label {
   width: auto;
   border: none;
   background-color: rgba(255, 255, 255, 0);
+  opacity: 100%;
 }
 
 a:link {
