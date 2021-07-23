@@ -5,16 +5,16 @@
 
 <div class="newDiv">
   <form >
-    <p>Input Username to View Favorites</p>
-    <input type="text" name="userId"/>
-    <button class="b"(click)="clickme(userId.value)">Login</button>
+    <p>Please Input Username to Switch User or Login</p>
+    <input type="text" name="userId" #userId/>
+    <button class="b"(click)="clickme(userId.value); getUserId(userId.value)">Login</button>
   </form>
 </div>
 
 
 <div class="newDiv" *ngFor="let f of favorite">
-  <button class="b3" (click)="clickme3(userId, f.id); getFavorites(userId)" style="background-color: transparent;">X</button>
-  <h3 *ngIf="userId !== undefined">{{f.text}}</h3>
+  <button class="b3" (click)="clickme3(f.id); getFavorites(userId.value)" style="background-color: transparent;">X</button>
+  <h3>{{f.text}}</h3>
   <h5>Answer: {{f.answer}}</h5>
 </div>
 

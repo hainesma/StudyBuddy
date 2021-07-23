@@ -54,9 +54,10 @@ ul {
     left: 100px;
     top: 10px;
   }
-  75%{
-      top: 0px;
-      left: 50px;
+
+  75% {
+    top: 0px;
+    left: 50px;
   }
 
   100% {
@@ -64,6 +65,7 @@ ul {
     top: 10px;
   }
 }
+
 
 label {
   padding: 3px;
