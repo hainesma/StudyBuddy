@@ -3,8 +3,8 @@
   <h2>Favorite Questions</h2>
 </div>
 
-<div class="newDiv">
-  <form *ngIf="userId == null">
+<div class="newDiv" *ngIf="userId == null">
+  <form >
     <p>Please input username</p>
     <input type="text" name="userId" #userId/>
     <button class="b"(click)="clickme(userId.value)">Login</button>
@@ -19,9 +19,4 @@
 </div>
 
 
-<div *ngFor="let f of favorite; index as i">
-
-  <p>Question Favorited: {{f.id}}. {{f.text}}</p>
-  <button (click)="clickme3(userId, f.id); getFavorites(userId)">Remove</button>
- </div>
 
