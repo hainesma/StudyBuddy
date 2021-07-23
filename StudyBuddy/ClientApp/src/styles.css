@@ -38,6 +38,10 @@ ul {
   position: relative;
   animation: moveit 3s infinite;
   list-style-type: none;
+  transition: transform .2s;
+}
+ul:hover {
+  transform: scale(18);
 }
 
 @keyframes moveit {
@@ -132,3 +136,14 @@ a:hover {
   .b3:hover {
     opacity: 100%;
   }
+
+.zoom {
+  padding: 50px;
+  background-color: green;
+  transition: transform .2s; /* Animation */
+  width: 200px;
+  height: 200px;
+  margin: 0 auto;
+}
+
+  
